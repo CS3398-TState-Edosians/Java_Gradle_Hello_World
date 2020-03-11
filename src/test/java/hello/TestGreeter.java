@@ -34,7 +34,7 @@ public class TestGreeter {
 
    @Test
    @DisplayName("Test for Name='Richard'")
-   public void testGreeter() 
+   public void testGreeterNonWorld() 
    {
 
       g.setName("Richard");
