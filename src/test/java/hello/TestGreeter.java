@@ -20,8 +20,6 @@ public class TestGreeter {
       assertEquals(g.sayHello(),"Hello!");
    }
 
-
-
    @Test
    @DisplayName("Test for Name='World'")
    public void testGreeter() 
@@ -30,6 +28,16 @@ public class TestGreeter {
       g.setName("World");
       assertEquals(g.getName(),"World");
       assertEquals(g.sayHello(),"Hello World!");
+   }
+
+   @Test
+   @DisplayName("Test for Name='Richard'")
+   public void testGreeterLength() 
+   {
+
+      g.setName("1234567890");
+      assertEquals(g.getName().length(),11);
+      assertEquals(g.sayHello().length(),16);
    }
 
 }
