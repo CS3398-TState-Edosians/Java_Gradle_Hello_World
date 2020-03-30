@@ -3,11 +3,11 @@ dist: xenial
 language: java
 install: true
 
-matrix: 
-  include: 
+matrix:
+  include:
   - jdk: oraclejdk9
 
-script: 
+script:
   - git config --global push.default simple
   - export GIT_TAG=$TRAVIS_BRANCH.$TRAVIS_BUILD_NUMBER
   - gradle clean build
@@ -24,20 +24,16 @@ before_deploy:
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
   - git push -q https://$GITPERM@github.com/CS3398-TState-Edosians/Java_Gradle_Hello_World  --tags
 #  - ls -R
-  
+
 deploy:
   provider: releases
   api_key:
-    secure: $GITPERM
-  file: 
+     $GITPERM
+  file:
     - README.md
-    - hello_world_test_reports.tar.gz 
-    - hello_world_executable_distributions.tar.gz 
-  skip_cleanup: true  
+    - hello_world_test_reports.tar.gz
+    - hello_world_executable_distributions.tar.gz
+  skip_cleanup: true
   on:
     tags: false
     all_branches: true
-    
-
-    
-
